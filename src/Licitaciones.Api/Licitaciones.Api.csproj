@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Licitaciones.Api</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Licitaciones.Application\Licitaciones.Application.csproj" />
+    <ProjectReference Include="..\Licitaciones.Infrastructure\Licitaciones.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

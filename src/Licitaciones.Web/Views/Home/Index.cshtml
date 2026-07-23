@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <h1 class="display-5 fw-bold">Sistema de Gestión de Licitaciones</h1>
+    <p class="col-md-9 fs-5">
+        Administrá el ciclo completo de un proceso de compras: creá licitaciones,
+        recibí ofertas de proveedores, identificá automáticamente la mejor oferta
+        y el nivel de aprobación correspondiente, y consultá los montos tanto en
+        colones (CRC) como en su equivalente referencial en dólares (USD).
+    </p>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">1. Licitaciones</h5>
+                <p class="card-text">
+                    Creá una licitación en estado Borrador, publicala para que
+                    reciba ofertas y cerrala cuando corresponda.
+                </p>
+                <a asp-controller="Licitaciones" asp-action="Index" class="btn btn-primary">Ver licitaciones</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">2. Proveedores</h5>
+                <p class="card-text">
+                    Registrá y administrá el catálogo de proveedores que pueden
+                    presentar ofertas.
+                </p>
+                <a asp-controller="Proveedores" asp-action="Index" class="btn btn-primary">Ver proveedores</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">3. Ofertas y aprobación</h5>
+                <p class="card-text">
+                    El sistema calcula la mejor oferta, su clasificación de ahorro
+                    y el aprobador según el monto (disponible en próximas iteraciones).
+                </p>
+                <span class="badge text-bg-secondary">En construcción</span>
+            </div>
+        </div>
+    </div>
+</div>

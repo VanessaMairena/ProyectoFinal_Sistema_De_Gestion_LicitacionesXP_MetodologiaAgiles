@@ -1,0 +1,33 @@
+@model object
+@{
+    ViewData["Title"] = "Editar nivel de aprobación";
+    var (montoMin, montoMax, aprobador) = Model switch
+    {
+        NivelAprobacionDto dto => (dto.MontoMinimoCRC, dto.MontoMaximoCRC, dto.Aprobador),
+        EditarNivelAprobacionRequest req => (req.MontoMinimoCRC, req.MontoMaximoCRC, req.Aprobador),
+        _ => (0m, (decimal?)null, string.Empty)
+    };
+}
+
+<h1>Editar nivel de aprobación</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post" class="col-md-6">
+    @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label class="form-label">Monto mínimo (CRC)</label>
+        <input name="MontoMinimoCRC" type="number" step="0.01" value="@montoMin" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Monto máximo (CRC)</label>
+        <input name="MontoMaximoCRC" type="number" step="0.01" value="@montoMax" class="form-control" />
+        <div class="form-text">Dejalo vacío para que este sea el rango abierto (sin límite superior).</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Aprobador</label>
+        <input name="Aprobador" value="@aprobador" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a asp-action="Index" class="btn btn-link">Cancelar</a>
+</form>

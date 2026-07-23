@@ -1,0 +1,25 @@
+@model object
+@{
+    ViewData["Title"] = "Editar proveedor";
+    // El modelo puede llegar como ProveedorDto (GET) o EditarProveedorRequest (POST con error).
+    var nombreActual = Model switch
+    {
+        ProveedorDto dto => dto.Nombre,
+        EditarProveedorRequest req => req.Nombre,
+        _ => string.Empty
+    };
+}
+
+<h1>Editar proveedor</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post" class="col-md-6">
+    @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input name="Nombre" value="@nombreActual" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a asp-action="Index" class="btn btn-link">Cancelar</a>
+</form>

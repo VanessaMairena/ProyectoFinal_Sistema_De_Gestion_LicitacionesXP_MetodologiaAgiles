@@ -1,0 +1,103 @@
+@model LicitacionDto
+@{
+    ViewData["Title"] = "Detalle de licitación";
+}
+
+<h1>@Model.Titulo</h1>
+<p class="text-muted">Código: @Model.Codigo</p>
+
+<dl class="row">
+    <dt class="col-sm-3">Estado</dt>
+    <dd class="col-sm-9"><span class="badge text-bg-info">@Model.Estado</span></dd>
+
+    <dt class="col-sm-3">Fecha de cierre</dt>
+    <dd class="col-sm-9">@Model.FechaCierre.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</dd>
+
+    <dt class="col-sm-3">Presupuesto estimado (CRC)</dt>
+    <dd class="col-sm-9">@Model.PresupuestoEstimadoCRC.ToString("N2")</dd>
+</dl>
+
+<div class="mb-4">
+    @if (Model.Estado == nameof(EstadoLicitacion.Borrador))
+    {
+        <form asp-action="CambiarEstado" asp-route-id="@Model.Id" method="post" class="d-inline">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="nuevoEstado" value="@EstadoLicitacion.Publicada" />
+            <button type="submit" class="btn btn-success">Publicar</button>
+        </form>
+        <form asp-action="CambiarEstado" asp-route-id="@Model.Id" method="post" class="d-inline">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="nuevoEstado" value="@EstadoLicitacion.Cerrada" />
+            <button type="submit" class="btn btn-outline-danger">Cerrar directamente</button>
+        </form>
+    }
+    else if (Model.Estado == nameof(EstadoLicitacion.Publicada))
+    {
+        <form asp-action="CambiarEstado" asp-route-id="@Model.Id" method="post" class="d-inline">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="nuevoEstado" value="@EstadoLicitacion.Cerrada" />
+            <button type="submit" class="btn btn-danger">Cerrar licitación</button>
+        </form>
+    }
+    else
+    {
+        <span class="text-muted">Esta licitación ya está cerrada; no admite más transiciones.</span>
+    }
+</div>
+
+<a asp-action="Index" class="btn btn-link">← Volver al listado</a>
+
+<hr class="my-4" />
+
+@{
+    var ofertas = (IReadOnlyList<OfertaDto>)ViewBag.Ofertas;
+    var mejorOferta = (MejorOfertaDto)ViewBag.MejorOferta;
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Ofertas recibidas</h2>
+    @if (Model.Estado == nameof(EstadoLicitacion.Publicada))
+    {
+        <a asp-controller="Ofertas" asp-action="Create" asp-route-licitacionId="@Model.Id" class="btn btn-success">
+            + Registrar oferta
+        </a>
+    }
+</div>
+
+@if (mejorOferta.MejorOferta is not null)
+{
+    <div class="alert alert-info">
+        <strong>Mejor oferta:</strong> @mejorOferta.MejorOferta.NombreProveedor —
+        ₡@mejorOferta.MejorOferta.MontoOfertadoCRC.ToString("N2")
+        <span class="badge text-bg-secondary ms-2">@mejorOferta.Clasificacion</span>
+        <span class="text-muted ms-2">(ahorro: @mejorOferta.PorcentajeAhorro.ToString("N2")%)</span>
+    </div>
+}
+else
+{
+    <div class="alert alert-secondary">Aún no hay ofertas válidas para esta licitación.</div>
+}
+
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Proveedor</th>
+            <th>Monto (CRC)</th>
+            <th>Fecha de registro</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var o in ofertas)
+        {
+            <tr>
+                <td>@o.NombreProveedor</td>
+                <td>@o.MontoOfertadoCRC.ToString("N2")</td>
+                <td>@o.FechaRegistro.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</td>
+            </tr>
+        }
+        @if (ofertas.Count == 0)
+        {
+            <tr><td colspan="3" class="text-center text-muted">Sin ofertas registradas.</td></tr>
+        }
+    </tbody>
+</table>

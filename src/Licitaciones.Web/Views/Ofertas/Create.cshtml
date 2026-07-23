@@ -1,0 +1,29 @@
+@model RegistrarOfertaRequest
+@{
+    ViewData["Title"] = "Registrar oferta";
+    var proveedores = (IReadOnlyList<Licitaciones.Domain.Entidades.Proveedor>)ViewBag.Proveedores;
+}
+
+<h1>Registrar oferta</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Create" asp-route-licitacionId="@ViewBag.LicitacionId" method="post" class="col-md-6">
+    @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label class="form-label">Proveedor</label>
+        <select name="ProveedorId" class="form-select">
+            <option value="">-- Seleccioná un proveedor --</option>
+            @foreach (var p in proveedores)
+            {
+                <option value="@p.Id">@p.Nombre</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Monto ofertado (CRC)</label>
+        <input name="MontoOfertadoCRC" type="number" step="0.01" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar oferta</button>
+    <a asp-controller="Licitaciones" asp-action="Details" asp-route-id="@ViewBag.LicitacionId" class="btn btn-link">Cancelar</a>
+</form>

@@ -1,0 +1,46 @@
+@model IReadOnlyList<TipoCambioDto>
+@{
+    ViewData["Title"] = "Tipo de Cambio";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Tipo de Cambio (CRC/USD)</h1>
+    <a asp-action="Create" class="btn btn-success">+ Registrar nuevo tipo de cambio</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>₡ por $1</th>
+            <th>Fecha de vigencia</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr class="@(t.Activo ? "table-success" : "")">
+                <td>@t.CRCporUSD.ToString("N4")</td>
+                <td>@t.FechaVigencia.ToLocalTime().ToString("dd/MM/yyyy")</td>
+                <td>@(t.Activo ? "Activo" : "Histórico")</td>
+            </tr>
+        }
+        @if (Model.Count == 0)
+        {
+            <tr><td colspan="3" class="text-center text-muted">No hay tipos de cambio registrados.</td></tr>
+        }
+    </tbody>
+</table>
+
+<hr class="my-4" />
+
+<h2>Convertir un monto</h2>
+<form asp-action="Convertir" method="post" class="row g-2 col-md-6">
+    @Html.AntiForgeryToken()
+    <div class="col-auto">
+        <input type="number" step="0.01" name="montoCRC" class="form-control" placeholder="Monto en CRC" />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-outline-primary">Convertir a USD</button>
+    </div>
+</form>

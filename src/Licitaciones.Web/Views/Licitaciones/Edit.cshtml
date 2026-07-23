@@ -1,0 +1,32 @@
+@model object
+@{
+    ViewData["Title"] = "Editar licitación";
+    var (titulo, fechaCierre, presupuesto) = Model switch
+    {
+        LicitacionDto dto => (dto.Titulo, dto.FechaCierre, dto.PresupuestoEstimadoCRC),
+        EditarLicitacionRequest req => (req.Titulo, req.FechaCierre, req.PresupuestoEstimadoCRC),
+        _ => (string.Empty, DateTimeOffset.Now, 0m)
+    };
+}
+
+<h1>Editar licitación</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post" class="col-md-6">
+    @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label class="form-label">Título</label>
+        <input name="Titulo" value="@titulo" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fecha y hora de cierre</label>
+        <input name="FechaCierre" type="datetime-local" value="@fechaCierre.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Presupuesto estimado (CRC)</label>
+        <input name="PresupuestoEstimadoCRC" type="number" step="0.01" value="@presupuesto" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a asp-action="Index" class="btn btn-link">Cancelar</a>
+</form>
