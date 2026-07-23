@@ -27,8 +27,10 @@ public class LicitacionesController : Controller
     }
 
     public IActionResult Create() =>
-        View(new CrearLicitacionRequest(string.Empty, string.Empty, DateTimeOffset.Now.AddDays(7), 0));
+    View(new CrearLicitacionRequest(string.Empty, string.Empty, TruncarAMinuto(DateTimeOffset.Now.AddDays(7)), 0));
 
+private static DateTimeOffset TruncarAMinuto(DateTimeOffset fecha) =>
+    new(fecha.Year, fecha.Month, fecha.Day, fecha.Hour, fecha.Minute, 0, fecha.Offset);
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CrearLicitacionRequest request, CancellationToken ct)

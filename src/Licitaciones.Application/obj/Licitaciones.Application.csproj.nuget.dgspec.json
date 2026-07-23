@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Application\\Licitaciones.Application.csproj": {}
+    "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Application\\Licitaciones.Application.csproj": {}
   },
   "projects": {
-    "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Application\\Licitaciones.Application.csproj": {
+    "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Application\\Licitaciones.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Application\\Licitaciones.Application.csproj",
+        "projectUniqueName": "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Application\\Licitaciones.Application.csproj",
         "projectName": "Licitaciones.Application",
-        "projectPath": "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Application\\Licitaciones.Application.csproj",
+        "projectPath": "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Application\\Licitaciones.Application.csproj",
         "packagesPath": "C:\\Users\\vanes\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Application\\obj\\",
+        "outputPath": "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vanes\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\Licitaciones.Domain.csproj": {
-                "projectPath": "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\Licitaciones.Domain.csproj"
+              "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\Licitaciones.Domain.csproj": {
+                "projectPath": "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\Licitaciones.Domain.csproj"
               }
             }
           }
@@ -67,14 +67,14 @@
         }
       }
     },
-    "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\Licitaciones.Domain.csproj": {
+    "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\Licitaciones.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\Licitaciones.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\Licitaciones.Domain.csproj",
         "projectName": "Licitaciones.Domain",
-        "projectPath": "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\Licitaciones.Domain.csproj",
+        "projectPath": "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\Licitaciones.Domain.csproj",
         "packagesPath": "C:\\Users\\vanes\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\obj\\",
+        "outputPath": "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vanes\\AppData\\Roaming\\NuGet\\NuGet.Config"

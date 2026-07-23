@@ -18,8 +18,8 @@
         <input asp-for="Titulo" class="form-control" />
     </div>
     <div class="mb-3">
-        <label class="form-label">Fecha y hora de cierre</label>
-        <input asp-for="FechaCierre" type="datetime-local" class="form-control" />
+    <label class="form-label">Fecha y hora de cierre</label>
+    <input name="FechaCierre" type="datetime-local" value="@Model.FechaCierre.ToString("yyyy-MM-ddTHH:mm")" class="form-control" />
     </div>
     <div class="mb-3">
         <label class="form-label">Presupuesto estimado (CRC)</label>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WxMfJnT+kR0=",
+  "dgSpecHash": "u7DK5HHfHdo=",
   "success": true,
-  "projectFilePath": "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Infrastructure\\Licitaciones.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\src\\Licitaciones.Infrastructure\\Licitaciones.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vanes\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\vanes\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
