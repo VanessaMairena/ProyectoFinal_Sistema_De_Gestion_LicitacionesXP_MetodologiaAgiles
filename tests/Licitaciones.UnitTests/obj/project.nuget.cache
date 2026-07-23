@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vARjWc1CEoc=",
+  "dgSpecHash": "HDEK/a4Tnts=",
   "success": true,
-  "projectFilePath": "c:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\tests\\Licitaciones.UnitTests\\Licitaciones.UnitTests.csproj",
+  "projectFilePath": "C:\\Users\\vanes\\Downloads\\Proyecto Final Andres\\licitaciones\\tests\\Licitaciones.UnitTests\\Licitaciones.UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vanes\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\vanes\\.nuget\\packages\\microsoft.codecoverage\\17.11.1\\microsoft.codecoverage.17.11.1.nupkg.sha512",
