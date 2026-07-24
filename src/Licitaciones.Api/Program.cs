@@ -21,8 +21,16 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
     {
         Title = "API — Sistema de Gestión de Licitaciones",
-        Version = "v1"
+        Version = "v1",
+        Description =
+            "Endpoints REST para administrar Proveedores, Licitaciones, Ofertas, " +
+            "Niveles de Aprobación y Tipo de Cambio. Todos los montos se manejan " +
+            "en colones costarricenses (CRC) como fuente de verdad."
     });
+
+    var archivoXml = Path.Combine(AppContext.BaseDirectory, $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml");
+    if (File.Exists(archivoXml))
+        options.IncludeXmlComments(archivoXml);
 });
 
 builder.Services.AddDbContext<LicitacionesDbContext>(options =>
@@ -76,3 +84,10 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+/// <summary>
+/// Punto de entrada expuesto como clase pública parcial para que
+/// <c>WebApplicationFactory&lt;Program&gt;</c> pueda arrancar esta Api en
+/// memoria desde el proyecto de pruebas E2E (Iteración 5).
+/// </summary>
+public partial class Program { }
